@@ -15,7 +15,7 @@ const Signin = () => {
                     type="text"
                     placeholder="password"
                 />
-                <button className="btn waves-effect waves-light light-blue lighten-1" type="submit" name="action">
+                <button className="btn waves-effect waves-light light-blue darken-1" style={{width:"100%"}} type="submit" name="action">
                     Login                
                 </button>
                 <p>
