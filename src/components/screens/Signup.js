@@ -27,7 +27,6 @@ const Signup = () => {
         .then(data =>{
             if(data.error){
                 M.toast({html:data.message,classes:'red darken-3'})
-                console.log(data.message)
             }else{
                 M.toast({html:data.message,classes:'green darken-3'})
                 history.go("/signin")
