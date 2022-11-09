@@ -25,11 +25,12 @@ const Signup = () => {
             })
         }).then(res => res.json())
         .then(data =>{
-            if(data.error){
-                M.toast({html:data.message,classes:'red darken-3'})
+            if(data.messageError){
+                M.toast({html:data.messageError,classes:'red darken-3'})
+                console.log(data.messageError)
             }else{
                 M.toast({html:data.message,classes:'green darken-3'})
-                history.go("/signin")
+                history.post("/signin")
             }
         })
     }
