@@ -1,16 +1,16 @@
 import React, {useState} from "react";
 import M from "materialize-css";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
 
-    const history = useHistory()
+    const navigate = useNavigate()
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const postData = () =>{
         if (!/^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
-            M.toast({html:"invalid email",classes:'red darken-3'})
+            M.toast({html:"invalid email",classes:'red darken-3 rounded'})
             return
         }
         fetch("http://localhost:5000/auth/signup",{
@@ -19,19 +19,19 @@ const Signup = () => {
                 "Content-Type":"application/json"
             },
             body:JSON.stringify({
-                name:name,
                 email:email,
                 password:password
             })
         }).then(res => res.json())
         .then(data =>{
             if(data.messageError){
-                M.toast({html:data.messageError,classes:'red darken-3'})
-                console.log(data.messageError)
+                M.toast({html:data.messageError,classes:'red darken-3 rounded'})
             }else{
-                M.toast({html:data.message,classes:'green darken-3'})
-                history.post("/signin")
+                M.toast({html:data.message,classes:'green darken-3 rounded'})
+                navigate('/signin')
             }
+        }).catch(err =>{
+            console.log(err)
         })
     }
 

@@ -1,16 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
  
 
 const Navbar = () =>{
     return(
         <nav>
         <div className="nav-wrapper white">
-          <a href="/" className="brand-logo left" style={{padding:"10px", paddingBlockStart:"inherit"}}>Instagram</a>
+          <Link to="/" className="brand-logo left" style={{padding:"10px", paddingBlockStart:"inherit"}}>Instagram</Link>
           <ul id="nav-mobile" className="right ">
-            <li><a href="/signin">Signin</a></li>
-            <li><a href="/signup">Signup</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/create-post">Create Post</a></li>
+            <li><Link to="/signin">Signin</Link></li>
+            <li><Link to="/signup">Signup</Link></li>
+            <li><Link to="/profile">Profile</Link></li>
+            <li><Link to="/create-post">Create Post</Link></li>
           </ul>
         </div>
       </nav>    
