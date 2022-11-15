@@ -9,6 +9,10 @@ const Signup = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const postData = () =>{
+        if(!email || !password || name){
+            M.toast({html:"Please input all fields",classes:'red darken-3 rounded'})
+            return
+        }
         if (!/^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
             M.toast({html:"invalid email",classes:'red darken-3 rounded'})
             return
@@ -19,6 +23,7 @@ const Signup = () => {
                 "Content-Type":"application/json"
             },
             body:JSON.stringify({
+                name:name,
                 email:email,
                 password:password
             })
@@ -73,4 +78,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default Signup;

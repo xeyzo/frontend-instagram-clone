@@ -5,6 +5,7 @@ const CreatePost = () =>{
     return(
         <div style={{
             margin:"10px auto",
+            marginTop:"50px",
             maxWidth:"500px",
             padding:"20px",
             textAlign:"center"
@@ -27,4 +28,4 @@ const CreatePost = () =>{
     )
 }
 
-export default CreatePost
+export default CreatePost;
