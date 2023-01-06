@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div className="home">
       <div className="card home-card">
-        <h5>Kipaklodon</h5>
+        <h5 style={{padding:"5px"}}>Kipaklodon</h5>
         <div className="card-image">
           <img
             src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHdhbHBhcGVyfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60"

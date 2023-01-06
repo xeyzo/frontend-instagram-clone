@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import M from "materialize-css";
+import { UserContext } from "../../App";
 
 const Signin = () => {
+  const { state, dispatch } = useContext(UserContext)
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,9 +32,9 @@ const Signin = () => {
         if (data.messageError) {
           M.toast({ html: data.messageError, classes: "red darken-3 rounded" });
         } else {
-          console.log(data.user)
           localStorage.setItem("jwt", data.token)
           localStorage.setItem("user", JSON.stringify(data.user));
+          dispatch({type:"USER", payload:data.user})
           M.toast({ html: "Login success", classes: "green darken-3 rounded" });
           navigate("/");
         }
@@ -50,7 +52,7 @@ const Signin = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
-          type="text"
+          type="password"
           placeholder="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
