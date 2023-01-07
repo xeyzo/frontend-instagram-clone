@@ -38,7 +38,7 @@ const Routing = ()=>{
 }
 
 function App() {
-  const [state, dispatch] = useReducer(initState, reducer)
+  const [state, dispatch] = useReducer(reducer, initState)
   return (
     <UserContext.Provider value={{state, dispatch}}>
     <BrowserRouter>
